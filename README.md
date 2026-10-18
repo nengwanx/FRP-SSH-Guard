@@ -8,6 +8,10 @@ Connection-rate protection for SSH services exposed through an FRP server (`frps
 Install the guard on your public Linux server, select the forwarded TCP ports,
 and use nftables to limit repeated connection attempts and block abusive sources.
 
+> **Observed impact (~10-day window):** **4,255,592** abusive packets dropped
+> (**99.97%**), **1,110** auto-bans across **595** unique IPs, and **0** backend
+> failed logins in the latest 24-hour window.
+
 **Version 0.0.4 · MIT licensed · Bash and Python · No proprietary runtime components**
 
 [Deployment](#deploy-step-by-step) · [Configuration](#configuration) ·
