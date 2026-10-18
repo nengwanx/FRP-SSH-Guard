@@ -16,19 +16,18 @@ and use nftables to limit repeated connection attempts and block abusive sources
 
 ## Observed deployment results
 
-An operator-reported dataset from a live deployment, **October 8-18, 2026**
-(~10 days), together with a ~30-day backend log window (September 13-October 13).
+An operator-reported dataset from a live deployment during a **~10-day observation window**, together with a **~30-day backend log window**.
 
 | Metric | Before / earlier (reported) | With the guard (reported) |
 | --- | --- | --- |
-| Deployment window | - | **Oct 8-18, 2026 (~10 days)** |
+| Observation window | - | **~10 days** |
 | Auto-ban events recorded | - | **1,110** |
 | Unique IPs auto-banned | - | **595** |
 | Auto-ban events per day | - | **155 to 37** across the window |
-| Guard packet counters, ~5 days since last reload (Oct 13-18) | - | **4,255,592 dropped; 1,287 passed** |
+| Guard packet counters, ~5 days since last reload | - | **4,255,592 dropped; 1,287 passed** |
 | Drop fraction of those packet counters | - | **99.97%** |
 | Backend failed logins, 24-hour window | **6,442** | **0 observed** |
-| Backend failed logins, ~30 days before the public guard | **927,446** (Sep 13-Oct 13) | - |
+| Backend failed logins, ~30 days before the public guard | **927,446** | - |
 | All-proxy connections, hourly | Approximately 248/hour | **~56/hour** (1,336 in 24 h) |
 | SSH connections reaching backends, 24 hours | Approximately 200+/hour | **246 (~10/hour)** |
 
@@ -45,7 +44,7 @@ logins means none were observed in that 24-hour window; successful logins and
 other authentication activity are separate metrics.
 
 The 1,110 ban events and 595 unique addresses are cumulative for the ~10-day
-deployment window; the packet counters cover the ~5 days since the rules were
+observation window; the packet counters cover the ~5 days since the rules were
 last reloaded. Both are raw observations, not normalized rates.
 
 These are observations from an existing deployment, supplied by its operator;
